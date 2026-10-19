@@ -218,7 +218,7 @@ const PROFILES = {
   elliot: {
     name: 'Elliot', age: 24, group: 'prison', groupLabel: 'In or leaving prison', coach: 'Maya', nextCoach: 'Jon',
     blurb: 'Studying in custody. Wants to keep his music project going if he is moved.',
-    stages: [['custody', 'In custody'], ['transfer', 'Moving prison'], ['release', 'Preparing for release'], ['community', 'In the community']],
+    stages: [['custody', 'In Custody'], ['transfer', 'Moving Prison'], ['release', 'Preparing For Release'], ['community', 'In The Community']],
     interests: ['music', 'trades'],
     thread: [
       ['coach', 'Good session today, Elliot. You said you want to keep the audio project going. What would help most this week?', 'Tue 14:05'],
@@ -229,7 +229,7 @@ const PROFILES = {
   kayla: {
     name: 'Kayla', age: 19, group: 'care', groupLabel: 'Care-experienced', coach: 'Maya', nextCoach: 'Jon',
     blurb: 'Moving into her first flat and thinking about college next year.',
-    stages: [['leaving', 'Leaving care'], ['independent', 'Living independently'], ['study', 'In education or work']],
+    stages: [['leaving', 'Leaving Care'], ['independent', 'Living Independently'], ['study', 'In Education Or Work']],
     interests: ['film', 'study'],
     thread: [
       ['coach', 'Hi Kayla, how is the new flat?', 'Mon 10:12'],
@@ -240,7 +240,7 @@ const PROFILES = {
   sami: {
     name: 'Sami', age: 20, group: 'neet', groupLabel: 'Not in education, employment or training', coach: 'Maya', nextCoach: 'Jon',
     blurb: 'Wants paid work soon and is curious about making a podcast.',
-    stages: [['start', 'Looking for a start'], ['training', 'In training'], ['work', 'In work']],
+    stages: [['start', 'Looking For A Start'], ['training', 'In Training'], ['work', 'In Work']],
     interests: ['podcasts', 'work'],
     thread: [
       ['coach', 'Great to meet you at the drop-in, Sami.', 'Wed 15:30'],
@@ -251,7 +251,7 @@ const PROFILES = {
   jordan: {
     name: 'Jordan', age: 15, group: 'school', groupLabel: 'School-aged, at risk of exclusion', coach: 'Dee', nextCoach: 'Sam',
     blurb: 'Likes making beats. Finds school hard right now.', under18: true,
-    stages: [['school', 'In school'], ['ap', 'In alternative provision'], ['moving', 'Moving on at 16']],
+    stages: [['school', 'In School'], ['ap', 'In Alternative Provision'], ['moving', 'Moving On At 16']],
     interests: ['music', 'sport'],
     thread: [
       ['coach', 'Hi Jordan, nice work in the beats session yesterday.', 'Thu 16:10'],
@@ -477,7 +477,7 @@ function viewGuide() {
       <li><div class="stack"><p><b>Talk to a coach.</b> In Coach, ask the helper to draft a message, edit it and send it. Switch to the Coach view and reply, using the suggested reply if you like.</p></div></li>
       <li><div class="stack"><p><b>Share something you made.</b> In Create, share a track. In the Coach view, open Reviews and approve it. Back in the app, it appears in the directory.</p></div></li>
       <li><div class="stack"><p><b>Post an opportunity.</b> In the Partner organisation view, send a listing for review. Approve it in the Coach view, then find it in Opportunities.</p></div></li>
-      <li><div class="stack"><p><b>Keep progress through a move.</b> As Elliot, change the stage to Moving prison, then share a handover with the next coach from the Coach tab. Accept it, or mark the coach unavailable, in the Coach view.</p></div></li>
+      <li><div class="stack"><p><b>Keep progress through a move.</b> As Elliot, change the stage to Moving Prison, then share a handover with the next coach from the Coach tab. Accept it, or mark the coach unavailable, in the Coach view.</p></div></li>
       <li><div class="stack"><p><b>See the safeguards.</b> In Coach, try the safeguarding example. Then choose Jordan, aged 15, to see what changes for under-18s.</p></div></li>
     </ol></section>
   <section class="boundary" aria-labelledby="g-limits"><h2 id="g-limits">What this demonstration is</h2>
@@ -768,7 +768,7 @@ function coachReviews() {
 }
 function coachHandovers() {
   const list = ORDER.filter(id => S.people[id].handover.status && S.people[id].handover.status !== 'review');
-  if (!list.length) return '<div class="card note"><p class="fine">No handovers yet. In the app, choose Elliot, change the stage to Moving prison or Preparing for release, and share a handover from the Coach tab.</p></div>';
+  if (!list.length) return '<div class="card note"><p class="fine">No handovers yet. In the app, choose Elliot, change the stage to Moving Prison or Preparing For Release, and share a handover from the Coach tab.</p></div>';
   return `<div class="queue">${list.map(id => {
     const pr = PROFILES[id], h = S.people[id].handover;
     return `<div class="card"><div class="row between"><h2>${pr.name}: ${esc(stageLabel(id))}</h2>${{ sent: `<span class="chip warn">Waiting for ${pr.nextCoach}</span>`, accepted: `<span class="chip good">Accepted by ${pr.nextCoach}</span>`, unavailable: `<span class="chip crit">${pr.nextCoach} unavailable</span>` }[h.status]}</div>
