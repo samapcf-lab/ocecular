@@ -1,7 +1,21 @@
 # OCECULAR by OCOE: partner demonstration
 
-Version 8, 19 October 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
+Version 9, 21 October 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
 
 Open `index.html` in a browser, or visit the GitHub Pages site for this repository.
 
 All people, coaches, organisations, courses, listings and media are invented. Conversations and the AI helper are scripted: no AI service is connected, nothing is stored, and no message reaches a real person. Please do not enter real personal details.
+
+The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111) are real services. The automatic safety check is a simple word list for illustration: it will miss things and get things wrong, and a real service would never rely on it.
+
+## What changed in version 9
+
+- Help now on every screen, with routes for each setting: Childline for under-18s, Samaritans and NHS 111 for adults, staff and Listeners in prison.
+- The Coach tab says who can read each conversation, including prison staff while someone is in prison.
+- In prison, messages use an approved route with no open internet, and coach visits are requested through the prison.
+- Under-18 conversations show supervisor oversight and contact hours; each coach signs in as themselves. The under-18 journey is marked as not designed yet.
+- Handovers also cover a care leaver moving area and a pupil moving on at 16.
+- The example safety check matches whole words, so everyday words such as "skills" no longer raise a flag, and it catches more ways people describe harm.
+- A "Tell us something is wrong" route, a more compact phone layout, and page landmarks for screen readers.
+
+Checked with 124 automated browser checks at phone and desktop widths, including an axe-core accessibility scan. Not tested on a real iPhone, with assistive technology users, or with participants.
