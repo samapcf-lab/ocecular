@@ -230,7 +230,7 @@ h2{font-weight:800;letter-spacing:-.01em}
 .tabbar button[aria-current="page"]::after{background:var(--pink)}
 .msg.me{background:var(--cyan);color:#0b0b10}
 .msg.me .by{color:#0b0b10;opacity:.75}
-.msg.helper{background:#1d2310;border-color:var(--lime)}
+.msg.helper{background:#1d2310;border:1px solid var(--lime)}
 .msg.helper .by{color:var(--lime)}
 .helper-chips button{border-color:var(--lime);color:var(--lime)}
 .filters button[aria-pressed="true"]{background:var(--lime);color:#0b0b10;border-color:var(--lime)}
@@ -278,6 +278,42 @@ button,select,input,textarea,.card,.tile,.pillar,.person,.ob-opt,.filters button
 .person .p-cta{font-size:.88em;white-space:nowrap}
 .person .p-flag{margin-bottom:18px}
 .person[aria-pressed="true"]{border-color:var(--line)}
+
+/* Poster style across every screen: each tab and staff view takes its feature colour */
+.tab-home{--acc:var(--pink)}.tab-learn{--acc:var(--cyan)}.tab-opps{--acc:var(--lime)}.tab-create{--acc:var(--pink)}.tab-coach{--acc:var(--orange)}
+.ws-coach{--acc:var(--orange)}.ws-partner{--acc:var(--lime)}
+[class*="tab-"] > section:first-child .eyebrow,.workspace .eyebrow{color:var(--acc)}
+.tab-learn > section:first-child h1,.tab-opps > section:first-child h1,.tab-create > section:first-child h1,.tab-coach > section:first-child h1{color:var(--acc);font-style:italic;font-size:2.6em}
+.workspace h1{font-style:italic}
+[class*="tab-"] .primary,.workspace .primary,.tab-create .clay{background:var(--acc);border-color:var(--acc);color:#0b0b10}
+[class*="tab-"] .primary:hover,.workspace .primary:hover{background:var(--acc);filter:brightness(1.1)}
+[class*="tab-"] .filters button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#0b0b10}
+[class*="tab-"] .chip.clay{background:var(--acc);color:#0b0b10}
+[class*="tab-"] .list>.card,.queue>.card,.twocol .card{border:1px solid var(--line)}
+[class*="tab-"] .list>.card:hover{border-color:var(--acc)}
+.card h3,.card h2{font-weight:800}
+[class*="tab-"] .list>.card h3{text-transform:uppercase;font-style:italic;font-weight:900;letter-spacing:.01em}
+.progress span{background:var(--acc,var(--pink))}
+.card.note{border:1px solid var(--line);background:var(--paper)}
+.who-sees .icon{color:var(--acc,var(--lime))}
+.helper-chips button{border-style:solid}
+.boundary{border-left:0;border-top:3px solid var(--lime);padding:14px 0 0}
+.media .t{text-transform:uppercase;font-style:italic;font-weight:900}
+.art{border-radius:4px}
+.msg{border-radius:6px}
+.msg.them{border-bottom-left-radius:2px}.msg.me{border-bottom-right-radius:2px}
+.ws-tabs{border-bottom:0;gap:8px}
+.ws-tabs button{border:1px solid var(--line);border-radius:4px;color:#fff;font-weight:800;text-transform:uppercase;font-size:.85em;letter-spacing:.03em}
+.ws-tabs button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#0b0b10;box-shadow:none}
+.ws-tabs button[aria-pressed="true"] .count{background:#0b0b10;color:var(--acc)}
+.workspace .roles button[aria-pressed="true"]{background:var(--acc);color:#0b0b10}
+.case{border:1px solid var(--line)}
+.case[aria-pressed="true"]{border:1px solid var(--acc);outline:2px solid var(--acc);outline-offset:1px;padding:12px 14px}
+.case .n{text-transform:uppercase;font-style:italic;font-weight:900}
+th{color:var(--acc,var(--lime))}
+.ws-partner form.card{border-top:0;border:1px solid var(--acc)}
+.demobar .roles button[aria-pressed="true"]{background:var(--pink);color:#0b0b10;box-shadow:none}
+[class*="tab-"] .check input,.workspace .check input{accent-color:var(--acc)}
 
 </style>
 <a class="skip" href="#root">Skip to content</a>
@@ -419,7 +455,7 @@ const MEDIA = [
 ];
 const MEDIA_TYPES = [['all', 'All'], ['video', 'Videos'], ['ai', 'AI short films'], ['music', 'Music'], ['podcast', 'Podcasts']];
 const MEDIA_LABEL = { video: 'Video', ai: 'AI short film', music: 'Music', podcast: 'Podcast' };
-const ART = [['#5b2f3a', '#a8492f'], ['#2f4a45', '#7c8f6a'], ['#3e2a4f', '#b06a4a'], ['#22313f', '#6a7f8f'], ['#5a3b22', '#c08a4a'], ['#2b2b38', '#8a4a6a'], ['#3b4a2a', '#a09048']];
+const ART = [['#ff2e93', '#ff8a1f'], ['#19b8ff', '#5b2bff'], ['#d7f205', '#19c37d'], ['#ff8a1f', '#ff2e93'], ['#5b2bff', '#ff2e93'], ['#19b8ff', '#d7f205'], ['#ff2e93', '#5b2bff']];
 
 /* Version 10: imagined persona profiles, and the starting answers Ocular suggests for each person (they can change every one). */
 Object.assign(PROFILES.elliot, {
@@ -675,7 +711,7 @@ function viewApp() {
       <select id="stage" data-change="stage">${pr.stages.map(([v, l]) => `<option value="${v}" ${p.stage === v ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
     ${pr.under18 ? `<p class="under18"><b>Under 18: not designed yet.</b> Shown only to illustrate what a children's service would restrict: sharing and Ocular's chat help are off, set-up is tap choices only, content is all ages, and a supervisor can see coach conversations. A real under-18 journey needs its own discovery, design and approval.</p>` : ''}
   </div>
-  <div class="app-main" id="app-main">${body}</div>
+  <div class="app-main ${p.ob.done && !S.prefs && !S.help ? `tab-${p.tab}` : ''}" id="app-main">${body}</div>
   ${!p.ob.done ? '' : `<nav class="tabbar" aria-label="Main">${tabs.map(([id, l, ic]) => `<button type="button" data-act="tab" data-arg="${id}" data-fk="tab:${id}" ${p.tab === id && !S.prefs && !S.help ? 'aria-current="page"' : ''}>${icon(ic)}<span>${l}</span>${id === 'coach' && p.unread ? `<span class="badge" aria-label="${p.unread} new">${p.unread}</span>` : ''}</button>`).join('')}</nav>`}
 </div>`;
 }
@@ -942,7 +978,7 @@ function viewCoach() {
   const flags = ids.filter(id => S.people[id].flag && S.people[id].flag.status === 'open');
   const tabs = [['messages', 'Messages', ids.filter(id => S.people[id].awaiting).length], ['reviews', 'Reviews', pending], ['handovers', 'Handovers', hos.filter(id => S.people[id].handover.status === 'sent').length], ['flags', 'Safeguarding', flags.length]];
   const panel = { messages: coachMessages, reviews: coachReviews, handovers: coachHandovers, flags: coachFlags }[S.coachTab]();
-  return `<div class="workspace fade">
+  return `<div class="workspace fade ws-coach">
   <div class="ws-head"><div class="stack"><p class="eyebrow">Coach workspace · fictional</p><h1 id="page-title" tabindex="-1">Every next step has a person behind it.</h1>
     <p class="muted">${S.coach}'s example caseload: conversations, handovers and safeguarding flags. Content and listing reviews are shared by OCOE's review team.</p></div>
     <div class="stack"><span class="fine"><b>Signed in as</b></span><div class="roles" role="group" aria-label="Signed in as">${Object.entries(COACH_ROLE).map(([n, r]) => `<button type="button" data-act="signin" data-arg="${n}" data-fk="signin:${n}" aria-pressed="${S.coach === n}">${n} · ${r}</button>`).join('')}</div></div></div>
@@ -1035,7 +1071,7 @@ function viewPartner() {
   const d = S.partner;
   const mine = [S.opps.find(o => o.id === 'o-podcast'), ...S.listings];
   const savesFor = id => ORDER.filter(pid => S.people[pid].saved[id]).length;
-  return `<div class="workspace fade">
+  return `<div class="workspace fade ws-partner">
   <div class="stack"><p class="eyebrow">Partner organisation · fictional</p><h1 id="page-title" tabindex="-1">Kestrel Studios partner portal</h1>
     <p class="muted">Employers, colleges and councils post opportunities for OCOE's young people. OCOE checks every listing before anyone sees it.</p></div>
   <div class="twocol">
