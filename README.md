@@ -1,12 +1,18 @@
 # OCECULAR by OCOE: partner demonstration
 
-Version 9, 21 October 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
+Version 10, 23 October 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
 
 Open `index.html` in a browser, or visit the GitHub Pages site for this repository.
 
 All people, coaches, organisations, courses, listings and media are invented. Conversations and the AI helper are scripted: no AI service is connected, nothing is stored, and no message reaches a real person. Please do not enter real personal details.
 
 The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111) are real services. The automatic safety check is a simple word list for illustration: it will miss things and get things wrong, and a real service would never rely on it.
+
+## What changed in version 10
+
+- Ocular, an AI guide every young person meets first: five tap questions that tailor Home, Learn, Opportunities and Create. Scripted, tap choices only, never decides eligibility, answers private unless shared with the coach.
+- Persona profiles for the four example young people.
+- A dark, vibrant look inspired by OCOE's youth event poster.
 
 ## What changed in version 9
 
@@ -18,4 +24,4 @@ The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111
 - The example safety check matches whole words, so everyday words such as "skills" no longer raise a flag, and it catches more ways people describe harm.
 - A "Tell us something is wrong" route, a more compact phone layout, and page landmarks for screen readers.
 
-Checked with 124 automated browser checks at phone and desktop widths, including an axe-core accessibility scan. Not tested on a real iPhone, with assistive technology users, or with participants.
+Checked with 146 automated browser checks at phone and desktop widths, including an axe-core accessibility scan. Not tested on a real iPhone, with assistive technology users, or with participants.
