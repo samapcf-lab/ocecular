@@ -211,7 +211,7 @@ th{font-size:.78em;text-transform:uppercase;letter-spacing:.08em;color:var(--mut
 select,.field select{appearance:none;-webkit-appearance:none;background-color:var(--paper);background-image:var(--chev);background-repeat:no-repeat;background-position:right 12px center;background-size:12px 8px;padding-right:36px}
 
 /* ---------- Version 10 look ---------- */
-body{background:radial-gradient(900px 500px at 0% 0%,rgba(255,46,147,.16),transparent 60%),radial-gradient(800px 500px at 100% 0%,rgba(25,184,255,.13),transparent 60%),var(--ground);background-attachment:fixed}
+body{background:var(--ground)}
 a{color:var(--cyan)}
 h1{font-weight:900;letter-spacing:-.01em;line-height:1.02;text-transform:uppercase}
 h2{font-weight:800;letter-spacing:-.01em}
@@ -228,14 +228,6 @@ h2{font-weight:800;letter-spacing:-.01em}
 .app-brand{font-style:italic}
 .tabbar button[aria-current="page"]{color:#fff}
 .tabbar button[aria-current="page"]::after{background:var(--pink)}
-.tile,.pillar{border-top:4px solid var(--line)}
-.t-learn{border-top-color:var(--cyan)}.t-learn .icon{color:var(--cyan)}
-.t-opps{border-top-color:var(--lime)}.t-opps .icon{color:var(--lime)}
-.t-create{border-top-color:var(--pink)}.t-create .icon{color:var(--pink)}
-.t-coach{border-top-color:var(--orange)}.t-coach .icon{color:var(--orange)}
-.person{border-left:5px solid var(--line)}
-.p-elliot{border-left-color:var(--orange)}.p-kayla{border-left-color:var(--pink)}.p-sami{border-left-color:var(--cyan)}.p-jordan{border-left-color:var(--lime)}
-.person[aria-pressed="true"]{border-color:var(--pink);border-left-width:5px}
 .msg.me{background:var(--cyan);color:#0b0b10}
 .msg.me .by{color:#0b0b10;opacity:.75}
 .msg.helper{background:#1d2310;border-color:var(--lime)}
@@ -248,7 +240,7 @@ h2{font-weight:800;letter-spacing:-.01em}
 .boundary{border-left-color:var(--lime)}
 .ocular-av{width:34px;height:34px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;font-weight:900;font-style:italic;color:#0b0b10;background:linear-gradient(135deg,var(--pink),var(--orange))}
 .ocular-msg{display:flex;gap:10px;align-items:flex-start}
-.ocular-msg p{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:12px;padding:10px 13px;line-height:1.45}
+.ocular-msg p{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;line-height:1.45}
 .ob-q{font-size:1.75em}
 .ob-opts{display:flex;flex-wrap:wrap;gap:8px}
 .ob-opt{border-radius:999px;padding:9px 16px}
@@ -256,10 +248,36 @@ h2{font-weight:800;letter-spacing:-.01em}
 .ob-progress{height:6px;border-radius:3px;background:var(--soft);overflow:hidden}
 .ob-progress span{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--lime))}
 .ob-sum{padding:12px 14px}
-.ocular-card{border-left:4px solid var(--lime)}
+
 .ocular-card .row{gap:10px}
 .persona summary{font-weight:700}
 .ocular-h{font-size:1.05em;font-weight:700;text-transform:none}
+
+/* Poster-style blocks: square corners, solid colour, black type; no side stripes or pills */
+.t-learn,.p-sami{--acc:var(--cyan)}.t-opps,.p-jordan{--acc:var(--lime)}.t-create,.p-kayla{--acc:var(--pink)}.t-coach,.p-elliot{--acc:var(--orange)}
+button,select,input,textarea,.card,.tile,.pillar,.person,.ob-opt,.filters button{border-radius:4px}
+.app{border-radius:8px}
+.chip{border-radius:2px;text-transform:uppercase;letter-spacing:.06em;font-size:.66em;font-weight:800}
+.person{display:flex;flex-direction:column;gap:0;padding:0;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.person>span{padding-inline:18px}
+.person .p-group{padding-top:18px;font-size:.7em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.person .who{font-size:1.55em;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.01em;margin-top:6px;line-height:1.05}
+.person .fine{margin-top:8px}
+.person .p-flag{margin-top:10px;font-size:.78em;font-weight:700;color:var(--warn)}
+.person .p-cta{margin-top:auto;padding-top:12px;padding-bottom:12px;background:var(--acc);color:#0b0b10;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:.02em}
+.person>.fine:last-of-type{margin-bottom:18px}
+.person:hover{border-color:var(--acc)}
+.person[aria-pressed="true"]{outline:3px solid var(--acc);outline-offset:2px;border-color:var(--acc);padding:0}
+.tile{border:0;background:var(--acc);color:#0b0b10}
+.tile:hover{background:var(--acc);filter:brightness(1.08)}
+.tile .icon,.tile .s{color:#0b0b10}
+.tile .t{font-weight:900;font-style:italic;text-transform:uppercase;font-size:1.1em}
+.pillar{border:1px solid var(--line)}
+.pillar .icon{color:var(--acc)}
+.pillar h3{text-transform:uppercase;font-style:italic;font-weight:900;color:var(--acc)}
+.person .p-cta{font-size:.88em;white-space:nowrap}
+.person .p-flag{margin-bottom:18px}
+.person[aria-pressed="true"]{border-color:var(--line)}
 
 </style>
 <a class="skip" href="#root">Skip to content</a>
@@ -586,10 +604,11 @@ function viewGuide() {
   const people = ORDER.map(id => {
     const p = PROFILES[id];
     return `<button type="button" class="person p-${id}" data-act="pick" data-arg="${id}" data-fk="pick:${id}" aria-pressed="${S.who === id}">
-      <span class="row"><span class="chip ${p.under18 ? 'warn' : 'clay'}">${esc(p.groupLabel)}</span>${p.under18 ? '<span class="chip warn">Not designed yet</span>' : ''}</span>
+      <span class="p-group">${esc(p.groupLabel)}</span>
       <span class="who">${p.name}, ${p.age}</span>
       <span class="fine">${esc(p.blurb)}</span>
-      <span class="fine"><b>Meet Ocular as ${p.name}</b></span></button>`;
+      ${p.under18 ? '<span class="p-flag">Not designed yet: shown only to illustrate the restrictions</span>' : ''}
+      <span class="p-cta">Meet Ocular as ${p.name} <span aria-hidden="true">→</span></span></button>`;
   }).join('');
   const profiles = ORDER.map(id => {
     const p = PROFILES[id], d = p.defaults;
