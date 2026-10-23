@@ -12,7 +12,7 @@ The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111
 
 - Ocular, an AI guide every young person meets first: five tap questions that tailor Home, Learn, Opportunities and Create. Scripted, tap choices only, never decides eligibility, answers private unless shared with the coach.
 - Persona profiles for the four example young people.
-- A dark, vibrant look inspired by OCOE's youth event poster.
+- A light, calm, readable look (warm off-white, sentence-case headings, no italics) with the colours of OCOE's youth event poster as accents.
 
 ## What changed in version 9
 
