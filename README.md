@@ -1,12 +1,18 @@
 # OCECULAR by OCOE: partner demonstration
 
-Version 12, 26 October 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
+Version 12.1, 30 October 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
 
 Open `index.html` in a browser, or visit the GitHub Pages site for this repository.
 
 All people, coaches, organisations, courses, listings and media are invented. Conversations and the AI helper are scripted: no AI service is connected, nothing is stored, and no message reaches a real person. Please do not enter real personal details.
 
 The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111) are real services. The automatic safety check is a simple word list for illustration: it will miss things and get things wrong, and a real service would never rely on it.
+
+## What changed in version 12.1
+
+- No new features. Automated checks now guard each promise: plans survive every stage change, coach replies reach only the right person, keyboard focus is never lost, Ocular stays off while a flag is open, and under-18 rules hold at every stage.
+- A keyboard-only journey, accessibility scans on every screen at every severity, and 23 planted faults to prove the checks catch real mistakes (all 23 caught).
+- Fixes: no "new" badge on the Coach tab while it is open, heading order on Learn and Opportunities, focus kept after closing notices and sending, pop-up messages clear of the tab bar on phones.
 
 ## What changed in version 12
 
@@ -37,4 +43,4 @@ The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111
 - The example safety check matches whole words, so everyday words such as "skills" no longer raise a flag, and it catches more ways people describe harm.
 - A "Tell us something is wrong" route, a more compact phone layout, and page landmarks for screen readers.
 
-Checked with 189 automated browser checks at phone and desktop widths, including an axe-core accessibility scan. Not tested on a real iPhone, with assistive technology users, or with participants.
+Checked with 253 automated browser checks at phone and desktop widths, including axe-core accessibility scans on every screen, and 23 checks at iPhone 13 size in Chromium. Not tested in Safari, on a real iPhone or the iOS Simulator, with assistive technology users, or with participants.
