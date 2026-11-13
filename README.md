@@ -1,12 +1,18 @@
 # OCECULAR by OCOE: partner demonstration
 
-Version 12.1, 30 October 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
+Version 13, 13 November 2026. A fictional prototype for discussion, prepared for the Outreach Centre of Excellence (OCOE).
 
 Open `index.html` in a browser, or visit the GitHub Pages site for this repository.
 
 All people, coaches, organisations, courses, listings and media are invented. Conversations and the AI helper are scripted: no AI service is connected, nothing is stored, and no message reaches a real person. Please do not enter real personal details.
 
 The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111) are real services. The automatic safety check is a simple word list for illustration: it will miss things and get things wrong, and a real service would never rely on it.
+
+## What changed in version 13
+
+- My passport: one screen for a young person's plan, progress, coaches and moves, with a plain list of who can see what and what is never held.
+- Working without a connection: the passport, plan, courses, checklist and Help now stay available. Messages wait and send on reconnecting. If a waiting message sounds unsafe, the app says plainly that nobody has seen it yet.
+- The no-connection mode is a simulation inside one page, not a real offline build.
 
 ## What changed in version 12.1
 
