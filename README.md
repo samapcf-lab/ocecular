@@ -49,4 +49,4 @@ The helpline numbers on the Help now screen (999, Childline, Samaritans, NHS 111
 - The example safety check matches whole words, so everyday words such as "skills" no longer raise a flag, and it catches more ways people describe harm.
 - A "Tell us something is wrong" route, a more compact phone layout, and page landmarks for screen readers.
 
-Checked with 253 automated browser checks at phone and desktop widths, including axe-core accessibility scans on every screen, and 23 checks at iPhone 13 size in Chromium. Not tested in Safari, on a real iPhone or the iOS Simulator, with assistive technology users, or with participants.
+Checked with 307 automated browser checks at phone and desktop widths, including axe-core accessibility scans on every screen, and 23 checks at iPhone 13 size in Chromium. Not tested in Safari, on a real iPhone or the iOS Simulator, with assistive technology users, or with participants.
